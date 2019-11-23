@@ -1812,7 +1812,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #12259a;
+  background: #e8b3ff;
 }
 .feed-link,
 .chat {
@@ -2764,6 +2764,10 @@ hr {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
+.main-inner {
+  background: #00f;
+  opacity: 0.9;
+}
 .post-body p a {
   color: #1c86ee;
   border-bottom: none;
@@ -2781,7 +2785,4 @@ hr {
 ::-moz-selection {
   background: #00c4b6;
   color: #f7f7f7;
-}
-.site-meta {
-  background: #0684bd;
 }
