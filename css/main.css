@@ -1812,7 +1812,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1affbb;
+  background: #8aff4a;
 }
 .feed-link,
 .chat {
@@ -2763,10 +2763,6 @@ hr {
   padding: 25px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
-}
-.main-inner {
-  background: #00f;
-  opacity: 0.9;
 }
 .post-body p a {
   color: #1c86ee;
