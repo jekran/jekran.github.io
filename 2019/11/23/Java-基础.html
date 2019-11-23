@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bd399fce"
+    });
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="面向对象和面向过程的区别 面向过程 ： 面向过程比面向对象性能高。Java是半编译语言（先编译成.class字节码文件，然后由虚拟机解释执行，Oracle JDK 提供的JVM都提供了JIT（Just-In-Time）编译器，及时编译，提高热点代码的执行效率，在运行时，JVM会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化 -Xint告诉JVM只进行解释执行，不对代码进行编译；-Xc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 基础">
+<meta property="og:url" content="https://www.skyworker.com/2019/11/23/Java-基础.html">
+<meta property="og:site_name" content="派 | Pyker">
+<meta property="og:description" content="面向对象和面向过程的区别 面向过程 ： 面向过程比面向对象性能高。Java是半编译语言（先编译成.class字节码文件，然后由虚拟机解释执行，Oracle JDK 提供的JVM都提供了JIT（Just-In-Time）编译器，及时编译，提高热点代码的执行效率，在运行时，JVM会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化 -Xint告诉JVM只进行解释执行，不对代码进行编译；-Xc">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-2.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-3.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-4.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-5.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-6.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-7.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-8.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-9.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-10.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-11.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-13.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-12.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-14.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-15.png">
+<meta property="og:image" content="https://www.skyworker.com/images/pasted-16.png">
+<meta property="og:updated_time" content="2019-11-23T06:38:44.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 基础">
+<meta name="twitter:description" content="面向对象和面向过程的区别 面向过程 ： 面向过程比面向对象性能高。Java是半编译语言（先编译成.class字节码文件，然后由虚拟机解释执行，Oracle JDK 提供的JVM都提供了JIT（Just-In-Time）编译器，及时编译，提高热点代码的执行效率，在运行时，JVM会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化 -Xint告诉JVM只进行解释执行，不对代码进行编译；-Xc">
+<meta name="twitter:image" content="https://www.skyworker.com/images/pasted-2.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="派 | Pyker" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://www.skyworker.com/2019/11/23/Java-基础">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java 基础 | 派 | Pyker</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">派 | Pyker</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-互动">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>互动</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.skyworker.com/2019/11/23/Java-基础.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="丨Pyker丨">
+      <meta itemprop="description" content="与其临渊羡鱼，不如退而结网。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="派 | Pyker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-23 14:38:40 / 修改时间：14:38:44" itemprop="dateCreated datePublished" datetime="2019-11-23T14:38:40+08:00">2019-11-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h2><ul>
+<li><p><strong>面向过程</strong> ： <strong>面向过程比面向对象性能高。</strong>Java是半编译语言（<strong>先编译成.class字节码文件，然后由虚拟机解释执行，Oracle JDK 提供的JVM都提供了JIT（Just-In-Time）编译器，及时编译，提高热点代码的执行效率，在运行时，JVM会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化 -Xint告诉JVM只进行解释执行，不对代码进行编译；-Xcomp则是告诉JVM不要进行解释执行，这种模式也叫做“最大优化级别”，但实际上也并不一定会高效。</strong>），最终的执行代码并不是可以直接被CPU执行的二进制机械码。类调用时需要实例化，开销比较大，比较消耗资源，而面向过程语言大多都是直接编译成机械码在电脑上执行，并且其它一些面向过程的脚本语言性能也并不一定比Java好。<br>所以当性能是最重要的考量因素的时候，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发。</p>
+</li>
+<li><p><strong>面向对象</strong> ：<strong>面向对象易复用，易扩展，易维护。</strong>因为面向对象有封装、继承、多态性的特性，所以可以设计出低耦合的系统，使系统更加灵活、更加易于维护。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>是运行Java字节码的虚拟机，针对不同操作系统有不同实现，目的是使用相同的字节码能给出相同的结果，字节码和不同系统的JVM实现，是“一次编译，处处运行的关键。”</p>
+<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>包含jre，编译器（javac)和工具（javadoc和jdb）</p>
+<h2 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h2><p>JRE 是 Java运行时环境,包括虚拟机，java类库，java命令和其他一些基础构件，但是，它不能用于创建新程序</p>
+<h2 id="OpenJDK-OracleJDK区别"><a href="#OpenJDK-OracleJDK区别" class="headerlink" title="OpenJDK    OracleJDK区别"></a>OpenJDK    OracleJDK区别</h2><ol>
+<li>OpenJDK 是一个参考模型并且是完全开源的，而Oracle JDK是OpenJDK的一个实现，并不是完全开源的；</li>
+<li>Oracle JDK 比 OpenJDK 更稳定。</li>
+</ol>
+<h2 id="字符型常量和字符串常量的区别"><a href="#字符型常量和字符串常量的区别" class="headerlink" title="字符型常量和字符串常量的区别?"></a>字符型常量和字符串常量的区别?</h2><ol>
+<li>字符常量相当于一个整型值( ASCII 值),可以参加表达式运算; 字符串常量代表一个地址值(该字符串在内存中存放位置)</li>
+<li>char在Java中占两个字节</li>
+</ol>
+<p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<h2 id="重载重写区别？"><a href="#重载重写区别？" class="headerlink" title="重载重写区别？"></a>重载重写区别？</h2><ul>
+<li>重载： 发生一个类当中， 方法名必须相同，参数类型，个数，顺序不同，返回值和访问修饰符可以不同，发生在编译时</li>
+<li>重写：发生在父子类中，方法名、参数列表必须相同，返回值范围小于等于父类，异常范围小于等于父类，访问修饰符大于等于父类。</li>
+</ul>
+<h2 id="Java-面向对象编程三大特性-封装-继承-多态"><a href="#Java-面向对象编程三大特性-封装-继承-多态" class="headerlink" title="Java 面向对象编程三大特性: 封装 继承 多态"></a>Java 面向对象编程三大特性: 封装 继承 多态</h2><p><strong>封装</strong></p>
+<p>对象属性私有化，提供外界访问方法</p>
+<p><strong>继承</strong></p>
+<p>复用父类属性，子类拥有父类所有属性和方法（包括私有），但无法访问私有属性和方法，<strong>只是拥有。</strong></p>
+<p><strong>多态</strong></p>
+<p>程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定（继承和实现）</p>
+<h2 id="String-StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的"><a href="#String-StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的" class="headerlink" title="String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?"></a>String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</h2><p><strong>可变性</strong></p>
+<p>使用final修饰字符数组，StringBuffer 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。</p>
+<p><strong>性能</strong></p>
+<p>String会生成新对象，StringBuffer/Stringbuilder操作本身</p>
+<h2 id="接口和抽象类的区别是什么？"><a href="#接口和抽象类的区别是什么？" class="headerlink" title="接口和抽象类的区别是什么？"></a>接口和抽象类的区别是什么？</h2><ol>
+<li>接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。</li>
+<li>接口中除了static、final变量，不能有其他变量，而抽象类中则不一定。</li>
+<li>一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过extends关键字扩展多个接口。</li>
+<li>接口方法默认修饰符是public，抽象方法可以有public、protected和default这些修饰符（抽象方法就是为了被重写所以不能使用private关键字修饰！）。</li>
+<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，而接口是对行为的抽象，是一种行为的规范。</li>
+</ol>
+<h2 id="成员变量与局部变量的区别有哪些？"><a href="#成员变量与局部变量的区别有哪些？" class="headerlink" title="成员变量与局部变量的区别有哪些？"></a>成员变量与局部变量的区别有哪些？</h2><ol>
+<li>成员变量如果没有被赋初值:则会自动以类型的默认值而赋值（一种情况例外:被 final 修饰的成员变量也必须显式地赋值），而局部变量则不会自动赋值。</li>
+<li>从变量在内存中的存储方式来看:如果成员变量是使用static修饰的，那么这个成员变量是属于类的，如果没有使用static修饰，这个成员变量是属于实例的。而对象存在于堆内存，局部变量则存在于栈内存。</li>
+</ol>
+<h2 id="与-equals-重要"><a href="#与-equals-重要" class="headerlink" title="== 与 equals(重要)"></a>== 与 equals(重要)</h2><ol>
+<li>== 判断两个对象地址是否相等，即是否为同一个对象（基本类型比较值，引用类型比较地址值）</li>
+<li>equals<ul>
+<li>没有覆盖equals方法，等价于==</li>
+<li>覆盖，比较内容，内容相等则返回true</li>
+</ul>
+</li>
+<li>object 的 equals 方法是比较的对象的内存地址,String 的 equals 方法比较的是对象的值。</li>
+<li>当创建 String 类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个 String 对象。</li>
+</ol>
+<h2 id="hashCode-与-equals-重要"><a href="#hashCode-与-equals-重要" class="headerlink" title="hashCode 与 equals (重要)"></a>hashCode 与 equals (重要)</h2><p>hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返回一个int整数, 确定对象在哈希表中的索引位置，定义在Oject类中</p>
+<p><strong>为什么要有 hashCode</strong>、</p>
+<p>举例，把对象加入 HashSet 时,会首先计算hashcode判断位置，如果相同则调用equals方法检查对象是否相同，如果相同则不加入，不同则重新计算散列值<br>hashCode() 的默认行为是对堆上的对象产生独特值。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据），两个对象相等则hashcode一定相等，hashcode相等，对象不一定相等</p>
+<h2 id="Java中只有值传递"><a href="#Java中只有值传递" class="headerlink" title="Java中只有值传递"></a>Java中只有值传递</h2><ul>
+<li>方法不能修改一个基本数据类型的参数<br><img src="/images/pasted-4.png" alt="upload successful"></li>
+<li>方法可以改变对象参数的状态</li>
+</ul>
+<p><img src="/images/pasted-5.png" alt="upload successful"></p>
+<ul>
+<li>方法不能让对象参数引用别的对象</li>
+</ul>
+<p><img src="/images/pasted-6.png" alt="upload successful"></p>
+<h2 id="线程，进程，进程"><a href="#线程，进程，进程" class="headerlink" title="线程，进程，进程"></a>线程，进程，进程</h2><ul>
+<li><strong>线程：</strong>轻量级进程，一个进程可产生多个线程，同类的多个线程共享同一块内存空间和一组系统资源，切换负担比进程小</li>
+<li><strong>程序：</strong>含有指令和数据的文件，存储在磁盘或者其他存储设备中，静态的代码</li>
+<li><strong>进程：</strong>属于操作系统范畴，程序在执行时，将会被操作系统载入内存，程和进程最大的不同在于基本上各进程是独立的，各线程则不一定</li>
+</ul>
+<h2 id="线程有哪些基本状态"><a href="#线程有哪些基本状态" class="headerlink" title="线程有哪些基本状态?"></a>线程有哪些基本状态?</h2><ul>
+<li>线程在运行中只可能处于以下6种状态中的一种<br><img src="/images/pasted-7.png" alt="upload successful"></li>
+<li>状态变迁<br><img src="/images/pasted-8.png" alt="upload successful"><br>创建处于<strong>NEW（新建）</strong>状态，调用start方法处于<strong>READY（可运行）</strong>状态，获得cpu时间片处于<strong>RUNNING(运行)</strong>状态，操作系统隐藏了这两种，统称RUNNABLE(运行中)</li>
+</ul>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><ul>
+<li>修饰变量，基本类型值不可被修改，引用类型引用对象不可修改</li>
+<li>修饰类，类不可被继承，所有成员方法隐式指定为final</li>
+<li>类中所有private方法被隐式修饰为final</li>
+</ul>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><ul>
+<li><strong>修饰成员变量和成员方法：</strong>静态变量存储于方法区，被类中所有对象共享</li>
+<li><strong>静态代码块：</strong> 静态代码块—&gt;非静态代码块—&gt;构造方法，不管创建多少对象，只执行一次（类加载器中有缓冲区，虚拟机运行一次类只会被加载一次） </li>
+<li><strong>静态内部类（static修饰类的话只能修饰内部类）：</strong>非静态内部内在编译完成后会隐含的保存一个指向外部内的引用，而静态创建不需要依赖任何外部类，不可使使用外部类非静态变量和成员方法</li>
+<li><strong>静态导包(import static 用来导入类中的静态资源，1.5之后的新特性)：</strong>可直接使用类中静态属性，方法</li>
+</ul>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>引用类的当前实例。</p>
+<h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2><ul>
+<li>用于从子类访问父类的属性和方法。</li>
+<li>在构造器中调用父类构造方法，必须放在第一行，this调用本类其他构造方法，也得放在第一行，否则编译报错。</li>
+<li>this，super不能用于static方法中，<strong>this和super是属于对象范畴的东西，而静态方法是属于类范畴的东西。</strong></li>
+</ul>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p><img src="/images/pasted-9.png" alt="upload successful"><br><strong>java.lang.Throwable</strong></p>
+<ul>
+<li><strong>Error（错误）：</strong>不可查的，程序无法处理的错误， 如Java虚拟机运行错误（Virtual MachineError），类定义错误（NoClassDefFoundError）等。</li>
+<li><strong>Exception：</strong>:是程序本身可以处理的异常</li>
+</ul>
+<p><strong>Throwable类常用方法</strong></p>
+<ul>
+<li>public string getMessage():返回异常发生时的简要描述</li>
+<li>public void printStackTrace():在控制台上打印Throwable对象封装的异常信息</li>
+</ul>
+<p><strong>异常处理</strong></p>
+<ul>
+<li>try：捕获异常，可接零个或多个catch块，零个则必须跟finally块</li>
+<li>catch：处理捕获到的异常</li>
+<li><p>finally：是否捕获都会被执行，try或catch中遇到return，finally将在方法返回之前执行，并且final块语句返回值会覆盖前面的返回值。</p>
+<p>  <strong>特殊情况不会被执行</strong></p>
+<ul>
+<li>final语句块第一行产生异常</li>
+<li>在前面调用System.exit(int)方法</li>
+<li>程序所在线程死亡</li>
+<li>关闭cpu</li>
+</ul>
+</li>
+</ul>
+<h2 id="阻止序列化"><a href="#阻止序列化" class="headerlink" title="阻止序列化"></a>阻止序列化</h2><p><strong>transient：</strong>阻止修饰的变量序列化和被反序列化，不能修饰方法和类</p>
+<h2 id="获取键盘输入两种办法"><a href="#获取键盘输入两种办法" class="headerlink" title="获取键盘输入两种办法"></a>获取键盘输入两种办法</h2><p><strong>Scanner：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String s  = input.nextLine();</span><br><span class="line">input.close();</span><br></pre></td></tr></table></figure></p>
+<p><strong>BufferedReader：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader input = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in)); </span><br><span class="line">String s = input.readLine();</span><br></pre></td></tr></table></figure></p>
+<h2 id="Java-中-IO-流"><a href="#Java-中-IO-流" class="headerlink" title="Java 中 IO 流"></a>Java 中 IO 流</h2><p><strong>类型</strong></p>
+<ul>
+<li>按流向，分为输入和输出流</li>
+<li>按操作单元，分为字符流和字节流</li>
+<li>按角色，分为节点流和处理流</li>
+</ul>
+<p>总共40多个类，都是从如下4个抽象基类派生出来</p>
+<ul>
+<li>InputStream/Reader: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。</li>
+<li>OutputStream/Writer: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</li>
+</ul>
+<p>按操作方式分类解构图：</p>
+<p><img src="/images/pasted-10.png" alt="upload successful"></p>
+<p>按操作对象分类结构图：</p>
+<p><img src="/images/pasted-11.png" alt="upload successful"></p>
+<p><strong>既然有了字节流,为什么还要有字符流?</strong></p>
+<p>字符流是由虚拟机将字节转换得到，过程非常耗时，容易乱码，直接提供字符流，操作字符，图片，音频等媒体文件用字节流</p>
+<p><strong>BIO,NIO,AIO 有什么区别?</strong></p>
+<ul>
+<li><strong>BIO (Blocking I/O)：</strong> 同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成</li>
+<li><strong>NIO (New I/O)： </strong> NIO是一种同步非阻塞的I/O模型，基于通道的I/O操作方法，提供了与传统BIO模型中的 Socket 和 ServerSocket 相对应的 SocketChannel 和 ServerSocketChannel 两种不同的套接字通道实现，低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用 NIO 的非阻塞模式来开发</li>
+<li><strong>AIO (Asynchronous I/O): AIO 也就是 NIO 2：</strong>异步非阻塞的IO模型。异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</li>
+</ul>
+<h2 id="Collections-工具类和-Arrays-工具类常见方法"><a href="#Collections-工具类和-Arrays-工具类常见方法" class="headerlink" title="Collections 工具类和 Arrays 工具类常见方法"></a>Collections 工具类和 Arrays 工具类常见方法</h2><p> <strong>Collections</strong></p>
+<ul>
+<li><p><strong>排序操作</strong></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span><span class="comment">//反转</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span><span class="comment">//随机排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span><span class="comment">//按自然排序的升序排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list, Comparator c)</span><span class="comment">//定制排序，由Comparator控制排序逻辑</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(List list, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span><span class="comment">//交换两个索引位置的元素</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(List list, <span class="keyword">int</span> distance)</span><span class="comment">//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面。</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>查找,替换操作</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list, Object key)</span><span class="comment">//对List进行二分查找，返回索引，注意List必须是有序的</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll)</span><span class="comment">//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll, Comparator c)</span><span class="comment">//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span><span class="params">(List list, Object obj)</span><span class="comment">//用指定的元素代替指定list中的所有元素。</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(Collection c, Object o)</span><span class="comment">//统计元素出现次数</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOfSubList</span><span class="params">(List list, List target)</span><span class="comment">//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">replaceAll</span><span class="params">(List list, Object oldVal, Object newVal)</span>, 用新元素替换旧元素</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>同步控制</strong></p>
+<pre><code>提供了多个synchronizedXxx()方法，效率非常低，需要线程安全的集合类型时考虑使用 JUC 包下的并发集合。
+</code></pre><p><strong>设置不可变集合</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">emptyXxx(): 返回一个空的、不可变的集合对象，此处的集合既可以是List，也可以是Set，还可以是Map。</span><br><span class="line">singletonXxx(): 返回一个只包含指定对象（只有一个或一个元素）的不可变的集合对象，此处的集合可以是：List，Set，Map。</span><br><span class="line">unmodifiableXxx(): 返回指定集合对象的不可变视图，此处的集合可以是：List，Set，Map。</span><br><span class="line">上面三类方法的参数是原有的集合对象，返回值是该集合的”只读“版本。</span><br></pre></td></tr></table></figure></p>
+<h2 id="Arrays类的常见操作"><a href="#Arrays类的常见操作" class="headerlink" title="Arrays类的常见操作"></a>Arrays类的常见操作</h2><ol>
+<li>排序 : sort()</li>
+<li>查找 : binarySearch()</li>
+<li>比较: equals()</li>
+<li>填充 : fill()</li>
+<li>转列表: asList()<ul>
+<li>需传入对象数组<br><img src="/images/pasted-13.png" alt="upload successful"></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>正确的将数组转换为ArrayList?</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  List list = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>))</span><br><span class="line">  &lt;--------</span><br><span class="line">  Integer [] myArray = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"> List myList = Arrays.stream(myArray).collect(Collectors.toList());</span><br><span class="line"> <span class="comment">//基本类型也可以实现转换（依赖boxed的装箱操作）</span></span><br><span class="line"> <span class="keyword">int</span> [] myArray2 = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"> List myList = Arrays.stream(myArray2).boxed().collect(Collectors.toList());</span><br><span class="line">&lt;--------</span><br><span class="line"> List&lt;String&gt; il = ImmutableList.of(<span class="string">"string"</span>, <span class="string">"elements"</span>);  <span class="comment">// from varargs</span></span><br><span class="line"> List&lt;String&gt; il = ImmutableList.copyOf(aStringArray);      <span class="comment">// from array</span></span><br><span class="line"></span><br><span class="line">&lt;--------</span><br><span class="line">   List&lt;String&gt; l1 = Lists.newArrayList(anotherListOrCollection);    <span class="comment">// from collection</span></span><br><span class="line">List&lt;String&gt; l2 = Lists.newArrayList(aStringArray);               <span class="comment">// from array</span></span><br><span class="line">List&lt;String&gt; l3 = Lists.newArrayList(<span class="string">"or"</span>, <span class="string">"string"</span>, <span class="string">"elements"</span>); <span class="comment">// from varargs</span></span><br><span class="line">   &lt;--------</span><br><span class="line">   List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">CollectionUtils.addAll(list, str);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>转字符串 : toString()</li>
+<li>复制: copyOf()</li>
+</ol>
+<h2 id="疑难点"><a href="#疑难点" class="headerlink" title="疑难点"></a>疑难点</h2><ul>
+<li><p><strong>正确使用 equals 方法：</strong>推荐使用 java.util.Objects#equals(JDK7 引入的工具类)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 可以避免空指针异常。如果a==null的话此时a.equals(b)就不会得到执行，避免出现空指针异常。</span></span><br><span class="line">        <span class="keyword">return</span> (a == b) || (a != <span class="keyword">null</span> &amp;&amp; a.equals(b));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>所有整型包装类对象值的比较必须使用equals方法。</strong></p>
+<ul>
+<li>使用自动装箱方式创建一个Integer对象时，当数值在<strong>-128 ~127</strong>时，会将创建的 Integer 对象<strong>缓存</strong>起来，当下次再出现该数值时，直接从缓存中取出对应的Integer对象<ul>
+<li><strong>浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals 来判断。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>BigDecimal</strong></p>
+</li>
+</ul>
+<p><img src="/images/pasted-12.png" alt="upload successful"></p>
+<p>Bigdecimal 主要用于操作大浮点数， BigInteger用于操作大整数（超过long类型）</p>
+<ul>
+<li><p><strong>Collection.toArray()使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String [] s= <span class="keyword">new</span> String[]&#123;</span><br><span class="line">    <span class="string">"dog"</span>, <span class="string">"lazy"</span>, <span class="string">"a"</span>, <span class="string">"over"</span>, <span class="string">"jumps"</span>, <span class="string">"fox"</span>, <span class="string">"brown"</span>, <span class="string">"quick"</span>, <span class="string">"A"</span></span><br><span class="line">&#125;;</span><br><span class="line">List&lt;String&gt; list = Arrays.asList(s);</span><br><span class="line">Collections.reverse(list);</span><br><span class="line">s=list.toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);<span class="comment">//没有指定类型的话会报错</span></span><br><span class="line">由于JVM优化，<span class="keyword">new</span> String[<span class="number">0</span>]作为Collection.toArray()方法的参数现在使用更好，<span class="keyword">new</span> String[<span class="number">0</span>]就是起一个模板的作用，指定了返回数组的类型，<span class="number">0</span>是为了节省空间，因为它只是为了说明返回的类型。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>不要在 foreach 循环里进行元素的 remove/add 操作</strong></p>
+<ul>
+<li>java.util包下面的所有的集合类都是fail-fast的，而java.util.concurrent包下面的所有的类都是fail-safe的。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p>每次迭代都会调用hasnext方法（当前游标是否等于集合容量），如果返回true，则调用next方法，首先调用checkForComodification方法检查（ modCount表示这个迭代器期望该集合被修改的次数，expectedModCount表示这个迭代器期望该集合被修改的次数，判断不等则抛异常）。</p>
+<p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p><img src="/images/pasted-16.png" alt="upload successful"></p>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p><strong>实现最小值函数</strong></p>
+<p>自己设计一个泛型的获取数组最小值的函数.并且这个方法只能接受Number的子类并且实现了Comparable接口。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Number &amp; Comparable&lt;? <span class="keyword">super</span> T&gt;&gt; <span class="function">T <span class="title">min</span><span class="params">(T[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        T min = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (T t : arr) &#123;</span><br><span class="line">            <span class="keyword">if</span>(min.compareTo(t) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                min = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> minInteger = min(<span class="keyword">new</span> Integer[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;);<span class="comment">//result:1</span></span><br><span class="line">    <span class="keyword">double</span> minDouble = min(<span class="keyword">new</span> Double[]&#123;<span class="number">1.2</span>, <span class="number">2.2</span>, -<span class="number">1</span>d&#125;);<span class="comment">//result:-1d</span></span><br><span class="line">    String typeError = min(<span class="keyword">new</span> String[]&#123;<span class="string">"1"</span>,<span class="string">"3"</span>&#125;);<span class="comment">//报错</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用数组实现栈"><a href="#使用数组实现栈" class="headerlink" title="使用数组实现栈"></a>使用数组实现栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] storage;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GROW_FACTORY = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = <span class="number">16</span>;</span><br><span class="line">        <span class="keyword">this</span>.storage = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(initialCapacity &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity too small"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.capacity = initialCapacity;</span><br><span class="line">        <span class="keyword">this</span>.storage = <span class="keyword">new</span>  <span class="keyword">int</span>[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(count == capacity) &#123;</span><br><span class="line">            ensureCapacity();</span><br><span class="line">        &#125;</span><br><span class="line">        storage[count ++] = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> newSize = capacity * GROW_FACTORY;</span><br><span class="line">        storage = Arrays.copyOf(storage, newSize);</span><br><span class="line">        capacity = newSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回栈顶元素并出栈</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        count --;</span><br><span class="line">        <span class="keyword">if</span>(count == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storage[count];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回栈顶元素不出栈</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storage[count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Servlet总结"><a href="#Servlet总结" class="headerlink" title="Servlet总结"></a>Servlet总结</h2><ul>
+<li>主要负责接收用户请求</li>
+<li><p>定义方法</p>
+  <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> init(ServletConfig config) <span class="keyword">throws</span> ServletException</span><br><span class="line"><span class="keyword">void</span> service(ServletRequest req, ServletResponse resp) <span class="keyword">throws</span> ServletException, java.io.IOException</span><br><span class="line"><span class="keyword">void</span> destroy()</span><br><span class="line">java.lang.<span class="keyword">String</span> getServletInfo()</span><br><span class="line">ServletConfig getServletConfig()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生命周期<br>  web容器加载servlet并将其实例化后，servlet生命周期开始，容器运行init方法进行初始化，请求到达时调用service方法，会根据需要调用请求对应的doGet()或doPost()等方法，当服务器关闭或者应用被卸载时服务器会将servlet实例销毁，此时会调用destroy方法，init和destroy方法只会执行一次，service方法每次请求都会执行。</p>
+</li>
+<li>Form标签里的method的属性为get时调用doGet()，为post时调用doPost()。</li>
+</ul>
+<h2 id="get和post请求的区别"><a href="#get和post请求的区别" class="headerlink" title="get和post请求的区别"></a>get和post请求的区别</h2><ul>
+<li><p>get请求是用来从服务器上获得资源，post请求时用来向服务器提交数据</p>
+</li>
+<li><p>浏览器get post请求</p>
+<ul>
+<li><p>get 地址栏有长度限制，谷歌2M，幂等，浏览器缓存 </p>
+</li>
+<li><p>post 放在请求头或者请求实体里，无限制, 不幂等，无法设为书签</p>
+</li>
+</ul>
+<ul>
+<li>post相对安全，需要加密或者用https。</li>
+</ul>
+</li>
+<li><p>接口中的get和post</p>
+<ul>
+<li>get长度限制，服务器会处理整个url，太长影响性能,可以将数据放入body中</li>
+</ul>
+<ul>
+<li>post 无限制，可将数据放入url中</li>
+</ul>
+</li>
+<li><p>get 请求一次？ post请求两次？</p>
+<p>  客户端优化实现细节， 跟post和get本身没有关系</p>
+</li>
+<li><p>Servlet不是线程安全的，多线程并发的读写会导致数据不同步的问题,只读属性最好定义为final类型的</p>
+</li>
+</ul>
+<h2 id="转发-Forward-和重定向-Redirect-的区别"><a href="#转发-Forward-和重定向-Redirect-的区别" class="headerlink" title="转发(Forward)和重定向(Redirect)的区别"></a>转发(Forward)和重定向(Redirect)的区别</h2><p><strong>转发是服务器行为，重定向是客户端行为</strong></p>
+<ul>
+<li><p>转发</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">request</span>.getRequestDispatcher(<span class="string">"login_success.jsp"</span>).forward(<span class="built_in">request</span>, <span class="built_in">response</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重定向</p>
+<ul>
+<li>通过服务器返回的状态码实现，通过HttpServletResponse的setStatus(int status)方法<br>返回301，302，浏览器会到新的网址重新请求资源</li>
+</ul>
+<ul>
+<li><p>转发由服务器请求新接口返回数据，浏览器地址不变，重定向显示新url</p>
+</li>
+<li><p>转发可以共享数据，重定向不可</p>
+</li>
+<li><p>一般转发用于根据角色转发到相应模块，重定向用于登出返回主页</p>
+</li>
+<li>重定向效率较高</li>
+</ul>
+</li>
+</ul>
+<p><strong>JSP和Servlet是什么关系</strong></p>
+<pre><code>- jsp 本质就是servlet
+</code></pre><ul>
+<li>servlet先编译后部署，jsp先部署后编译（会在第一次访问时编译成class文件，之后由该class文件直接处理）</li>
+<li>servlet侧重于逻辑，jsp侧重于视图，第一次请求后会快很多</li>
+</ul>
+<p><strong>JSP有哪些内置对象、作用分别是什么</strong></p>
+<p>JSP有9个内置对象</p>
+<ul>
+<li>request：封装客户端的请求，其中包含来自GET或POST请求的参数；</li>
+<li>response：封装服务器对客户端的响应；</li>
+<li>pageContext：通过该对象可以获取其他对象；</li>
+<li>session：封装用户会话的对象；</li>
+<li>application：封装服务器运行环境的对象；</li>
+<li>out：输出服务器响应的输出流对象；</li>
+<li>config：Web应用的配置对象；</li>
+<li>page：JSP页面本身（相当于Java程序中的this）；</li>
+<li>exception：封装页面抛出异常的对象。</li>
+</ul>
+<p>Request对象的主要方法有哪些</p>
+<ul>
+<li>setAttribute(String name,Object)：设置名字为name的request 的参数值 </li>
+<li>getAttribute(String name)：返回由name指定的属性值 </li>
+<li>getAttributeNames()：返回request 对象所有属性的名字集合，结果是一个枚举的实例 </li>
+<li>getCookies()：返回客户端的所有 Cookie 对象，结果是一个Cookie 数组 </li>
+<li>getCharacterEncoding() ：返回请求中的字符编码方式 = getContentLength() ：返回请求的 Body的长度 </li>
+<li>getHeader(String name) ：获得HTTP协议定义的文件头信息 </li>
+<li>getHeaders(String name) ：返回指定名字的request Header 的所有值，结果是一个枚举的实例 </li>
+<li>getHeaderNames() ：返回所以request Header 的名字，结果是一个枚举的实例 </li>
+<li>getInputStream() ：返回请求的输入流，用于获得请求中的数据 </li>
+<li>getMethod() ：获得客户端向服务器端传送数据的方法 </li>
+<li>getParameter(String name) ：获得客户端传送给服务器端的有 name指定的参数值 </li>
+<li>getParameterNames() ：获得客户端传送给服务器端的所有参数的名字，结果是一个枚举的实例 </li>
+<li>getParameterValues(String name)：获得有name指定的参数的所有值 </li>
+<li>getProtocol()：获取客户端向服务器端传送数据所依据的协议名称 </li>
+<li>getQueryString() ：获得查询字符串 </li>
+<li>getRequestURI() ：获取发出请求字符串的客户端地址 </li>
+<li>getRemoteAddr()：获取客户端的 IP 地址 </li>
+<li>getRemoteHost() ：获取客户端的名字 </li>
+<li>getSession([Boolean create]) ：返回和请求相关 Session </li>
+<li>getServerName() ：获取服务器的名字 </li>
+<li>getServletPath()：获取客户端所请求的脚本文件的路径 </li>
+<li>getServerPort()：获取服务器的端口号 </li>
+<li>removeAttribute(String name)：删除请求中的一个属性 </li>
+</ul>
+<p><strong>request.getAttribute()和 request.getParameter()有何区别</strong></p>
+<ul>
+<li>getParameter是获取POST/GET传递的参数值， 返回的string，只能传字符串</li>
+<li>getAttribute 是获取容器中的值，返回的object，可以传对象</li>
+</ul>
+<h2 id="自动刷新-Refresh"><a href="#自动刷新-Refresh" class="headerlink" title="自动刷新(Refresh)"></a>自动刷新(Refresh)</h2><ul>
+<li>可以实现一段时间之后自动跳转到另一个页面，还可以实现一段时间之后自动刷新本页面<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Response.setHeader(<span class="string">"Refresh"</span>,<span class="string">"5;URL=http://localhost:8080/servlet/example.htm"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="实现会话跟踪的技术有哪些"><a href="#实现会话跟踪的技术有哪些" class="headerlink" title="实现会话跟踪的技术有哪些"></a>实现会话跟踪的技术有哪些</h2><ul>
+<li><p>使用cookie:</p>
+<ul>
+<li><p>向客户端发送cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Cookie c =<span class="keyword">new</span> Cookie(<span class="string">"name"</span>,<span class="string">"value"</span>); <span class="comment">//创建Cookie </span></span><br><span class="line">c.setMaxAge(<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>); <span class="comment">//设置最大时效，此处设置的最大时效为一天</span></span><br><span class="line">response.addCookie(c); <span class="comment">//把Cookie放入到HTTP响应中</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从客户端读取Cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> String name =<span class="string">"name"</span>; </span><br><span class="line">Cookie[]cookies =request.getCookies(); </span><br><span class="line"><span class="keyword">if</span>(cookies !=<span class="keyword">null</span>)&#123; </span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>;i&lt;cookies.length;i++)&#123; </span><br><span class="line">    Cookie cookie =cookies[i]; </span><br><span class="line">    <span class="keyword">if</span>(name.equals(cookis.getName())) </span><br><span class="line">    <span class="comment">//something is here. </span></span><br><span class="line">    <span class="comment">//you can get the value </span></span><br><span class="line">    cookie.getValue(); </span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以持久保存，不需要服务器资源</p>
+</li>
+<li><p>不安全，有大小限制，浏览器可禁用cookie</p>
+</li>
+</ul>
+</li>
+<li><p>url重写：（必须对网站的URL进行编码，页面需动态生成）</p>
+</li>
+<li>隐藏的表单域：（所有页面必须是表单提交之后的结果。）    </li>
+<li>HttpSession：<ul>
+<li>当一个用户第一次访问某个网站时会自动创建 HttpSession，每个用户可以访问他自己的HttpSession。可以通过HttpServletRequest对象的getSession方 法获得HttpSession，通过HttpSession的setAttribute方法可以将一个值放在HttpSession中，通过调用 HttpSession对象的getAttribute方法，同时传入属性名就可以获取保存在HttpSession中的对象</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Cookie和Session的的区别<ul>
+<li><strong>Cookie 一般用来保存用户信息</strong>，登陆时将token存入cookie中，下次不用重新登陆。<ul>
+<li><strong>Session 的主要作用就是通过服务端记录用户的状态</strong>，购物车场景</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your accept. mua！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.png" alt="丨Pyker丨 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/alipay.png" alt="丨Pyker丨 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>丨Pyker丨</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://www.skyworker.com/2019/11/23/Java-基础.html" title="Java 基础">https://www.skyworker.com/2019/11/23/Java-基础.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/30/第一篇博客.html" rel="next" title="第一篇博客">
+                <i class="fa fa-chevron-left"></i> 第一篇博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="丨Pyker丨">
+            
+              <p class="site-author-name" itemprop="name">丨Pyker丨</p>
+              <div class="site-description motion-element" itemprop="description">与其临渊羡鱼，不如退而结网。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ipyker" title="GitHub &rarr; https://github.com/ipyker" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:pyker@qq.com" title="E-Mail &rarr; mailto:pyker@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/viszhang" title="Weibo &rarr; https://weibo.com/viszhang" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=123435796&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=123435796&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-book"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ttlsa.com/" title="http://www.ttlsa.com/" rel="noopener" target="_blank">运维生存时间</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.iyunw.cn" title="https://www.iyunw.cn" rel="noopener" target="_blank">爱运维</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nginxconfig.io/" title="https://nginxconfig.io/" rel="noopener" target="_blank">Nginxconfig</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://linux.51yip.com/" title="http://linux.51yip.com/" rel="noopener" target="_blank">Linux命令手册</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://echarts.baidu.com/index.html" title="https://echarts.baidu.com/index.html" rel="noopener" target="_blank">echarts可视化库</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象和面向过程的区别"><span class="nav-number">1.</span> <span class="nav-text">面向对象和面向过程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">2.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">3.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JRE"><span class="nav-number">4.</span> <span class="nav-text">JRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenJDK-OracleJDK区别"><span class="nav-number">5.</span> <span class="nav-text">OpenJDK    OracleJDK区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符型常量和字符串常量的区别"><span class="nav-number">6.</span> <span class="nav-text">字符型常量和字符串常量的区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载重写区别？"><span class="nav-number">7.</span> <span class="nav-text">重载重写区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-面向对象编程三大特性-封装-继承-多态"><span class="nav-number">8.</span> <span class="nav-text">Java 面向对象编程三大特性: 封装 继承 多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-StringBuffer-和-StringBuilder-的区别是什么-String-为什么是不可变的"><span class="nav-number">9.</span> <span class="nav-text">String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口和抽象类的区别是什么？"><span class="nav-number">10.</span> <span class="nav-text">接口和抽象类的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量与局部变量的区别有哪些？"><span class="nav-number">11.</span> <span class="nav-text">成员变量与局部变量的区别有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与-equals-重要"><span class="nav-number">12.</span> <span class="nav-text">== 与 equals(重要)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与-equals-重要"><span class="nav-number">13.</span> <span class="nav-text">hashCode 与 equals (重要)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中只有值传递"><span class="nav-number">14.</span> <span class="nav-text">Java中只有值传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程，进程，进程"><span class="nav-number">15.</span> <span class="nav-text">线程，进程，进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程有哪些基本状态"><span class="nav-number">16.</span> <span class="nav-text">线程有哪些基本状态?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final"><span class="nav-number">17.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static"><span class="nav-number">18.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">19.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#super"><span class="nav-number">20.</span> <span class="nav-text">super</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理"><span class="nav-number">21.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻止序列化"><span class="nav-number">22.</span> <span class="nav-text">阻止序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取键盘输入两种办法"><span class="nav-number">23.</span> <span class="nav-text">获取键盘输入两种办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-中-IO-流"><span class="nav-number">24.</span> <span class="nav-text">Java 中 IO 流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-工具类和-Arrays-工具类常见方法"><span class="nav-number">25.</span> <span class="nav-text">Collections 工具类和 Arrays 工具类常见方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays类的常见操作"><span class="nav-number">26.</span> <span class="nav-text">Arrays类的常见操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#疑难点"><span class="nav-number">27.</span> <span class="nav-text">疑难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序设计"><span class="nav-number">28.</span> <span class="nav-text">程序设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用数组实现栈"><span class="nav-number">29.</span> <span class="nav-text">使用数组实现栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet总结"><span class="nav-number">30.</span> <span class="nav-text">Servlet总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get和post请求的区别"><span class="nav-number">31.</span> <span class="nav-text">get和post请求的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转发-Forward-和重定向-Redirect-的区别"><span class="nav-number">32.</span> <span class="nav-text">转发(Forward)和重定向(Redirect)的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动刷新-Refresh"><span class="nav-number">33.</span> <span class="nav-text">自动刷新(Refresh)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现会话跟踪的技术有哪些"><span class="nav-number">34.</span> <span class="nav-text">实现会话跟踪的技术有哪些</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style=" text-align:center;">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pyker</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"> 站点字数合计:</i>
+    </span>
+    
+    <span title="站点总字数">15k</span>
+  
+  
+  <span class="post-meta-divider">|</span>
+  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19028706号 </a>
+
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+<div class="run_time" style=" text-align:center;">
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/23/2017 10:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+    setInterval("createtime()",250);
+  </script>
+</div>
+        
+<div class="busuanzi-count" style=" text-align:center;">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/11/23/Java-基础.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
