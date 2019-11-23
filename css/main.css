@@ -1812,7 +1812,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e8b3ff;
+  background: #1affbb;
 }
 .feed-link,
 .chat {
@@ -2785,4 +2785,10 @@ hr {
 ::-moz-selection {
   background: #00c4b6;
   color: #f7f7f7;
+}
+.header {
+  background: #f7f7f7 repeat scroll !important;
+}
+.footer {
+  background: #f7f7f7 none repeat scroll !important;
 }
