@@ -158,7 +158,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 基础">
 <meta property="og:url" content="https://www.skyworker.com/2019/11/23/Java-基础.html">
-<meta property="og:site_name" content="派 | Pyker">
+<meta property="og:site_name" content="HI | Walker">
 <meta property="og:description" content="面向对象和面向过程的区别 面向过程 ： 面向过程比面向对象性能高。Java是半编译语言（先编译成.class字节码文件，然后由虚拟机解释执行，Oracle JDK 提供的JVM都提供了JIT（Just-In-Time）编译器，及时编译，提高热点代码的执行效率，在运行时，JVM会把这些代码编译成与本地平台相关的机器码，并进行各种层次的优化 -Xint告诉JVM只进行解释执行，不对代码进行编译；-Xc">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.skyworker.com/images/pasted-2.png">
@@ -184,7 +184,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="派 | Pyker" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="HI | Walker" type="application/atom+xml">
 
 
 
@@ -200,7 +200,7 @@
   };
 </script>
 
-  <title>Java 基础 | 派 | Pyker</title>
+  <title>Java 基础 | HI | Walker</title>
   
 
 
@@ -259,7 +259,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">派 | Pyker</span>
+        <span class="site-title">HI | Walker</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -465,13 +465,13 @@
     <link itemprop="mainEntityOfPage" href="https://www.skyworker.com/2019/11/23/Java-基础.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="丨Pyker丨">
-      <meta itemprop="description" content="与其临渊羡鱼，不如退而结网。">
+      <meta itemprop="name" content="丨SkyWalker丨">
+      <meta itemprop="description" content="何以解忧，唯有暴富。">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="派 | Pyker">
+      <meta itemprop="name" content="HI | Walker">
     </span>
 
     
@@ -696,15 +696,8 @@
 </li>
 </ul>
 <h2 id="阻止序列化"><a href="#阻止序列化" class="headerlink" title="阻止序列化"></a>阻止序列化</h2><p><strong>transient：</strong>阻止修饰的变量序列化和被反序列化，不能修饰方法和类</p>
-<h2 id="获取键盘输入两种办法"><a href="#获取键盘输入两种办法" class="headerlink" title="获取键盘输入两种办法"></a>获取键盘输入两种办法</h2><p><strong>Scanner：</strong></p>
-<pre><code class="java">Scanner input = new Scanner(System.in);
-String s  = input.nextLine();
-input.close();
-</code></pre>
-<p><strong>BufferedReader：</strong></p>
-<pre><code class="java">BufferedReader input = new BufferedReader(new InputStreamReader(System.in)); 
-String s = input.readLine(); 
-</code></pre>
+<h2 id="获取键盘输入两种办法"><a href="#获取键盘输入两种办法" class="headerlink" title="获取键盘输入两种办法"></a>获取键盘输入两种办法</h2><p><strong>Scanner：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String s  = input.nextLine();</span><br><span class="line">input.close();</span><br></pre></td></tr></table></figure></p>
+<p><strong>BufferedReader：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader input = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in)); </span><br><span class="line">String s = input.readLine();</span><br></pre></td></tr></table></figure></p>
 <h2 id="Java-中-IO-流"><a href="#Java-中-IO-流" class="headerlink" title="Java 中 IO 流"></a>Java 中 IO 流</h2><p><strong>类型</strong></p>
 <ul>
 <li>按流向，分为输入和输出流</li>
@@ -731,36 +724,17 @@ String s = input.readLine();
 <h2 id="Collections-工具类和-Arrays-工具类常见方法"><a href="#Collections-工具类和-Arrays-工具类常见方法" class="headerlink" title="Collections 工具类和 Arrays 工具类常见方法"></a>Collections 工具类和 Arrays 工具类常见方法</h2><p> <strong>Collections</strong></p>
 <ul>
 <li><p><strong>排序操作</strong></p>
-<pre><code class="java">void reverse(List list)//反转
-void shuffle(List list)//随机排序
-void sort(List list)//按自然排序的升序排序
-void sort(List list, Comparator c)//定制排序，由Comparator控制排序逻辑
-void swap(List list, int i , int j)//交换两个索引位置的元素
-void rotate(List list, int distance)//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面。
-</code></pre>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span><span class="comment">//反转</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span><span class="comment">//随机排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span><span class="comment">//按自然排序的升序排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list, Comparator c)</span><span class="comment">//定制排序，由Comparator控制排序逻辑</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(List list, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span><span class="comment">//交换两个索引位置的元素</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(List list, <span class="keyword">int</span> distance)</span><span class="comment">//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面。</span></span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p><strong>查找,替换操作</strong></p>
-<pre><code class="java">int binarySearch(List list, Object key)//对List进行二分查找，返回索引，注意List必须是有序的
-int max(Collection coll)//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)
-int max(Collection coll, Comparator c)//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)
-void fill(List list, Object obj)//用指定的元素代替指定list中的所有元素。
-int frequency(Collection c, Object o)//统计元素出现次数
-int indexOfSubList(List list, List target)//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).
-boolean replaceAll(List list, Object oldVal, Object newVal), 用新元素替换旧元素
-</code></pre>
-<p><strong>同步控制</strong></p>
-<p>  提供了多个synchronizedXxx()方法，效率非常低，需要线程安全的集合类型时考虑使用 JUC 包下的并发集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list, Object key)</span><span class="comment">//对List进行二分查找，返回索引，注意List必须是有序的</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll)</span><span class="comment">//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll, Comparator c)</span><span class="comment">//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span><span class="params">(List list, Object obj)</span><span class="comment">//用指定的元素代替指定list中的所有元素。</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(Collection c, Object o)</span><span class="comment">//统计元素出现次数</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOfSubList</span><span class="params">(List list, List target)</span><span class="comment">//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">replaceAll</span><span class="params">(List list, Object oldVal, Object newVal)</span>, 用新元素替换旧元素</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>设置不可变集合</strong></p>
-<pre><code class="java">emptyXxx(): 返回一个空的、不可变的集合对象，此处的集合既可以是List，也可以是Set，还可以是Map。
-singletonXxx(): 返回一个只包含指定对象（只有一个或一个元素）的不可变的集合对象，此处的集合可以是：List，Set，Map。
-unmodifiableXxx(): 返回指定集合对象的不可变视图，此处的集合可以是：List，Set，Map。
-上面三类方法的参数是原有的集合对象，返回值是该集合的”只读“版本。
-
-</code></pre>
+<p><strong>同步控制</strong></p>
+<pre><code>提供了多个synchronizedXxx()方法，效率非常低，需要线程安全的集合类型时考虑使用 JUC 包下的并发集合。
+</code></pre><p><strong>设置不可变集合</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">emptyXxx(): 返回一个空的、不可变的集合对象，此处的集合既可以是List，也可以是Set，还可以是Map。</span><br><span class="line">singletonXxx(): 返回一个只包含指定对象（只有一个或一个元素）的不可变的集合对象，此处的集合可以是：List，Set，Map。</span><br><span class="line">unmodifiableXxx(): 返回指定集合对象的不可变视图，此处的集合可以是：List，Set，Map。</span><br><span class="line">上面三类方法的参数是原有的集合对象，返回值是该集合的”只读“版本。</span><br></pre></td></tr></table></figure></p>
 <h2 id="Arrays类的常见操作"><a href="#Arrays类的常见操作" class="headerlink" title="Arrays类的常见操作"></a>Arrays类的常见操作</h2><ol>
 <li>排序 : sort()</li>
 <li>查找 : binarySearch()</li>
@@ -774,25 +748,7 @@ unmodifiableXxx(): 返回指定集合对象的不可变视图，此处的集合�
 <ul>
 <li><p>正确的将数组转换为ArrayList?</p>
 <ul>
-<li><pre><code class="java">List list = new ArrayList&lt;&gt;(Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))
-&lt;--------
-Integer [] myArray = { 1, 2, 3 };
-List myList = Arrays.stream(myArray).collect(Collectors.toList());
-//基本类型也可以实现转换（依赖boxed的装箱操作）
-int [] myArray2 = { 1, 2, 3 };
-List myList = Arrays.stream(myArray2).boxed().collect(Collectors.toList());
-&lt;--------
-List&lt;String&gt; il = ImmutableList.of(&quot;string&quot;, &quot;elements&quot;);  // from varargs
-List&lt;String&gt; il = ImmutableList.copyOf(aStringArray);      // from array
-
-&lt;--------
-List&lt;String&gt; l1 = Lists.newArrayList(anotherListOrCollection);    // from collection
-List&lt;String&gt; l2 = Lists.newArrayList(aStringArray);               // from array
-List&lt;String&gt; l3 = Lists.newArrayList(&quot;or&quot;, &quot;string&quot;, &quot;elements&quot;); // from varargs
-&lt;--------
-List&lt;String&gt; list = new ArrayList&lt;String&gt;();
-CollectionUtils.addAll(list, str);
-</code></pre>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  List list = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>))</span><br><span class="line">  &lt;--------</span><br><span class="line">  Integer [] myArray = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"> List myList = Arrays.stream(myArray).collect(Collectors.toList());</span><br><span class="line"> <span class="comment">//基本类型也可以实现转换（依赖boxed的装箱操作）</span></span><br><span class="line"> <span class="keyword">int</span> [] myArray2 = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"> List myList = Arrays.stream(myArray2).boxed().collect(Collectors.toList());</span><br><span class="line">&lt;--------</span><br><span class="line"> List&lt;String&gt; il = ImmutableList.of(<span class="string">"string"</span>, <span class="string">"elements"</span>);  <span class="comment">// from varargs</span></span><br><span class="line"> List&lt;String&gt; il = ImmutableList.copyOf(aStringArray);      <span class="comment">// from array</span></span><br><span class="line"></span><br><span class="line">&lt;--------</span><br><span class="line">   List&lt;String&gt; l1 = Lists.newArrayList(anotherListOrCollection);    <span class="comment">// from collection</span></span><br><span class="line">List&lt;String&gt; l2 = Lists.newArrayList(aStringArray);               <span class="comment">// from array</span></span><br><span class="line">List&lt;String&gt; l3 = Lists.newArrayList(<span class="string">"or"</span>, <span class="string">"string"</span>, <span class="string">"elements"</span>); <span class="comment">// from varargs</span></span><br><span class="line">   &lt;--------</span><br><span class="line">   List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">CollectionUtils.addAll(list, str);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -803,11 +759,7 @@ CollectionUtils.addAll(list, str);
 </ol>
 <h2 id="疑难点"><a href="#疑难点" class="headerlink" title="疑难点"></a>疑难点</h2><ul>
 <li><p><strong>正确使用 equals 方法：</strong>推荐使用 java.util.Objects#equals(JDK7 引入的工具类)。</p>
-<pre><code class="java">public static boolean equals(Object a, Object b) {
-      // 可以避免空指针异常。如果a==null的话此时a.equals(b)就不会得到执行，避免出现空指针异常。
-      return (a == b) || (a != null &amp;&amp; a.equals(b));
-  }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 可以避免空指针异常。如果a==null的话此时a.equals(b)就不会得到执行，避免出现空指针异常。</span></span><br><span class="line">        <span class="keyword">return</span> (a == b) || (a != <span class="keyword">null</span> &amp;&amp; a.equals(b));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>所有整型包装类对象值的比较必须使用equals方法。</strong></p>
 <ul>
@@ -824,16 +776,10 @@ CollectionUtils.addAll(list, str);
 <p>Bigdecimal 主要用于操作大浮点数， BigInteger用于操作大整数（超过long类型）</p>
 <ul>
 <li><p><strong>Collection.toArray()使用</strong></p>
-<pre><code class="java">String [] s= new String[]{
-    &quot;dog&quot;, &quot;lazy&quot;, &quot;a&quot;, &quot;over&quot;, &quot;jumps&quot;, &quot;fox&quot;, &quot;brown&quot;, &quot;quick&quot;, &quot;A&quot;
-};
-List&lt;String&gt; list = Arrays.asList(s);
-Collections.reverse(list);
-s=list.toArray(new String[0]);//没有指定类型的话会报错
-由于JVM优化，new String[0]作为Collection.toArray()方法的参数现在使用更好，new String[0]就是起一个模板的作用，指定了返回数组的类型，0是为了节省空间，因为它只是为了说明返回的类型。
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String [] s= <span class="keyword">new</span> String[]&#123;</span><br><span class="line">    <span class="string">"dog"</span>, <span class="string">"lazy"</span>, <span class="string">"a"</span>, <span class="string">"over"</span>, <span class="string">"jumps"</span>, <span class="string">"fox"</span>, <span class="string">"brown"</span>, <span class="string">"quick"</span>, <span class="string">"A"</span></span><br><span class="line">&#125;;</span><br><span class="line">List&lt;String&gt; list = Arrays.asList(s);</span><br><span class="line">Collections.reverse(list);</span><br><span class="line">s=list.toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);<span class="comment">//没有指定类型的话会报错</span></span><br><span class="line">由于JVM优化，<span class="keyword">new</span> String[<span class="number">0</span>]作为Collection.toArray()方法的参数现在使用更好，<span class="keyword">new</span> String[<span class="number">0</span>]就是起一个模板的作用，指定了返回数组的类型，<span class="number">0</span>是为了节省空间，因为它只是为了说明返回的类型。</span><br></pre></td></tr></table></figure>
 </li>
-<li><strong>不要在 foreach 循环里进行元素的 remove/add 操作</strong><ul>
+<li><p><strong>不要在 foreach 循环里进行元素的 remove/add 操作</strong></p>
+<ul>
 <li>java.util包下面的所有的集合类都是fail-fast的，而java.util.concurrent包下面的所有的类都是fail-safe的。</li>
 </ul>
 </li>
@@ -843,96 +789,15 @@ s=list.toArray(new String[0]);//没有指定类型的话会报错
 <p><img src="/images/pasted-15.png" alt="upload successful"></p>
 <p><img src="/images/pasted-16.png" alt="upload successful"></p>
 <h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p><strong>实现最小值函数</strong></p>
-<p>自己设计一个泛型的获取数组最小值的函数.并且这个方法只能接受Number的子类并且实现了Comparable接口。</p>
-<pre><code class="java">public static &lt;T extends Number &amp; Comparable&lt;? super T&gt;&gt; T min(T[] arr) {
-        if(arr == null || arr.length == 0) {
-            return null;
-        }
-        T min = arr[0];
-        for (T t : arr) {
-            if(min.compareTo(t) &gt; 0) {
-                min = t;
-            }
-        }
-        return min;
-    }
-
-    int minInteger = min(new Integer[]{1, 2, 3});//result:1
-    double minDouble = min(new Double[]{1.2, 2.2, -1d});//result:-1d
-    String typeError = min(new String[]{&quot;1&quot;,&quot;3&quot;});//报错
-</code></pre>
-<h2 id="使用数组实现栈"><a href="#使用数组实现栈" class="headerlink" title="使用数组实现栈"></a>使用数组实现栈</h2><pre><code class="java">public class MyStack {
-    private int[] storage;
-    private int capacity;
-    private int count;
-    private static final int GROW_FACTORY = 2;
-
-    public MyStack() {
-        this.capacity = 16;
-        this.storage = new int[capacity];
-    }
-
-    public MyStack(int initialCapacity) {
-        if(initialCapacity &lt; 1) {
-            throw new IllegalArgumentException(&quot;capacity too small&quot;);
-        }
-        this.capacity = initialCapacity;
-        this.storage = new  int[capacity];
-    }
-
-    public void push(int value) {
-        if(count == capacity) {
-            ensureCapacity();
-        }
-        storage[count ++] = value;
-    }
-
-    private void ensureCapacity() {
-        int newSize = capacity * GROW_FACTORY;
-        storage = Arrays.copyOf(storage, newSize);
-        capacity = newSize;
-    }
-
-    /**
-     * 返回栈顶元素并出栈
-     * @return
-     */
-    public int pop() {
-        count --;
-        if(count == -1) {
-            throw new IllegalArgumentException(&quot;capacity is empty&quot;);
-        }
-        return storage[count];
-    }
-
-    /**
-     * 返回栈顶元素不出栈
-     * @return
-     */
-    public int peek() {
-        if(count == 0) {
-            throw new IllegalArgumentException(&quot;capacity is empty&quot;);
-        }
-        return storage[count - 1];
-    }
-
-    public boolean isEmpty() {
-        return count == 0;
-    }
-
-    public int size() {
-        return count;
-    }
-</code></pre>
+<p>自己设计一个泛型的获取数组最小值的函数.并且这个方法只能接受Number的子类并且实现了Comparable接口。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Number &amp; Comparable&lt;? <span class="keyword">super</span> T&gt;&gt; <span class="function">T <span class="title">min</span><span class="params">(T[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr == <span class="keyword">null</span> || arr.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        T min = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (T t : arr) &#123;</span><br><span class="line">            <span class="keyword">if</span>(min.compareTo(t) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                min = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> minInteger = min(<span class="keyword">new</span> Integer[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;);<span class="comment">//result:1</span></span><br><span class="line">    <span class="keyword">double</span> minDouble = min(<span class="keyword">new</span> Double[]&#123;<span class="number">1.2</span>, <span class="number">2.2</span>, -<span class="number">1</span>d&#125;);<span class="comment">//result:-1d</span></span><br><span class="line">    String typeError = min(<span class="keyword">new</span> String[]&#123;<span class="string">"1"</span>,<span class="string">"3"</span>&#125;);<span class="comment">//报错</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用数组实现栈"><a href="#使用数组实现栈" class="headerlink" title="使用数组实现栈"></a>使用数组实现栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] storage;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GROW_FACTORY = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = <span class="number">16</span>;</span><br><span class="line">        <span class="keyword">this</span>.storage = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(initialCapacity &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity too small"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.capacity = initialCapacity;</span><br><span class="line">        <span class="keyword">this</span>.storage = <span class="keyword">new</span>  <span class="keyword">int</span>[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(count == capacity) &#123;</span><br><span class="line">            ensureCapacity();</span><br><span class="line">        &#125;</span><br><span class="line">        storage[count ++] = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> newSize = capacity * GROW_FACTORY;</span><br><span class="line">        storage = Arrays.copyOf(storage, newSize);</span><br><span class="line">        capacity = newSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回栈顶元素并出栈</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        count --;</span><br><span class="line">        <span class="keyword">if</span>(count == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storage[count];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回栈顶元素不出栈</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"capacity is empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storage[count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Servlet总结"><a href="#Servlet总结" class="headerlink" title="Servlet总结"></a>Servlet总结</h2><ul>
 <li>主要负责接收用户请求</li>
-<li>定义方法<pre><code>void init(ServletConfig config) throws ServletException
-void service(ServletRequest req, ServletResponse resp) throws ServletException, java.io.IOException
-void destroy()
-java.lang.String getServletInfo()
-ServletConfig getServletConfig()
-</code></pre></li>
-<li>生命周期<br>  web容器加载servlet并将其实例化后，servlet生命周期开始，容器运行init方法进行初始化，请求到达时调用service方法，会根据需要调用请求对应的doGet()或doPost()等方法，当服务器关闭或者应用被卸载时服务器会将servlet实例销毁，此时会调用destroy方法，init和destroy方法只会执行一次，service方法每次请求都会执行。</li>
+<li><p>定义方法</p>
+  <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> init(ServletConfig config) <span class="keyword">throws</span> ServletException</span><br><span class="line"><span class="keyword">void</span> service(ServletRequest req, ServletResponse resp) <span class="keyword">throws</span> ServletException, java.io.IOException</span><br><span class="line"><span class="keyword">void</span> destroy()</span><br><span class="line">java.lang.<span class="keyword">String</span> getServletInfo()</span><br><span class="line">ServletConfig getServletConfig()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生命周期<br>  web容器加载servlet并将其实例化后，servlet生命周期开始，容器运行init方法进行初始化，请求到达时调用service方法，会根据需要调用请求对应的doGet()或doPost()等方法，当服务器关闭或者应用被卸载时服务器会将servlet实例销毁，此时会调用destroy方法，init和destroy方法只会执行一次，service方法每次请求都会执行。</p>
+</li>
 <li>Form标签里的method的属性为get时调用doGet()，为post时调用doPost()。</li>
 </ul>
 <h2 id="get和post请求的区别"><a href="#get和post请求的区别" class="headerlink" title="get和post请求的区别"></a>get和post请求的区别</h2><ul>
@@ -965,8 +830,9 @@ ServletConfig getServletConfig()
 </ul>
 <h2 id="转发-Forward-和重定向-Redirect-的区别"><a href="#转发-Forward-和重定向-Redirect-的区别" class="headerlink" title="转发(Forward)和重定向(Redirect)的区别"></a>转发(Forward)和重定向(Redirect)的区别</h2><p><strong>转发是服务器行为，重定向是客户端行为</strong></p>
 <ul>
-<li>转发<pre><code>request.getRequestDispatcher(&quot;login_success.jsp&quot;).forward(request, response);
-</code></pre></li>
+<li><p>转发</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">request</span>.getRequestDispatcher(<span class="string">"login_success.jsp"</span>).forward(<span class="built_in">request</span>, <span class="built_in">response</span>);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>重定向</p>
 <ul>
 <li>通过服务器返回的状态码实现，通过HttpServletResponse的setStatus(int status)方法<br>返回301，302，浏览器会到新的网址重新请求资源</li>
@@ -983,7 +849,7 @@ ServletConfig getServletConfig()
 </li>
 </ul>
 <p><strong>JSP和Servlet是什么关系</strong></p>
-<pre><code> - jsp 本质就是servlet
+<pre><code>- jsp 本质就是servlet
 </code></pre><ul>
 <li>servlet先编译后部署，jsp先部署后编译（会在第一次访问时编译成class文件，之后由该class文件直接处理）</li>
 <li>servlet侧重于逻辑，jsp侧重于视图，第一次请求后会快很多</li>
@@ -1033,32 +899,17 @@ ServletConfig getServletConfig()
 <li>getAttribute 是获取容器中的值，返回的object，可以传对象</li>
 </ul>
 <h2 id="自动刷新-Refresh"><a href="#自动刷新-Refresh" class="headerlink" title="自动刷新(Refresh)"></a>自动刷新(Refresh)</h2><ul>
-<li><p>可以实现一段时间之后自动跳转到另一个页面，还可以实现一段时间之后自动刷新本页面</p>
-<pre><code class="java">Response.setHeader(&quot;Refresh&quot;,&quot;5;URL=http://localhost:8080/servlet/example.htm&quot;);
-
-</code></pre>
-<h2 id="实现会话跟踪的技术有哪些"><a href="#实现会话跟踪的技术有哪些" class="headerlink" title="实现会话跟踪的技术有哪些"></a>实现会话跟踪的技术有哪些</h2></li>
+<li>可以实现一段时间之后自动跳转到另一个页面，还可以实现一段时间之后自动刷新本页面<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Response.setHeader(<span class="string">"Refresh"</span>,<span class="string">"5;URL=http://localhost:8080/servlet/example.htm"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="实现会话跟踪的技术有哪些"><a href="#实现会话跟踪的技术有哪些" class="headerlink" title="实现会话跟踪的技术有哪些"></a>实现会话跟踪的技术有哪些</h2><ul>
 <li><p>使用cookie:</p>
 <ul>
-<li>向客户端发送cookie<pre><code class="java">Cookie c =new Cookie(&quot;name&quot;,&quot;value&quot;); //创建Cookie 
-c.setMaxAge(60*60*24); //设置最大时效，此处设置的最大时效为一天
-response.addCookie(c); //把Cookie放入到HTTP响应中
-</code></pre>
+<li><p>向客户端发送cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Cookie c =<span class="keyword">new</span> Cookie(<span class="string">"name"</span>,<span class="string">"value"</span>); <span class="comment">//创建Cookie </span></span><br><span class="line">c.setMaxAge(<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>); <span class="comment">//设置最大时效，此处设置的最大时效为一天</span></span><br><span class="line">response.addCookie(c); <span class="comment">//把Cookie放入到HTTP响应中</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>从客户端读取Cookie</p>
-<pre><code class="java">String name =&quot;name&quot;; 
-Cookie[]cookies =request.getCookies(); 
-if(cookies !=null){ 
-for(int i= 0;i&lt;cookies.length;i++){ 
- Cookie cookie =cookies[i]; 
- if(name.equals(cookis.getName())) 
- //something is here. 
- //you can get the value 
- cookie.getValue(); 
-
-}
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> String name =<span class="string">"name"</span>; </span><br><span class="line">Cookie[]cookies =request.getCookies(); </span><br><span class="line"><span class="keyword">if</span>(cookies !=<span class="keyword">null</span>)&#123; </span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>;i&lt;cookies.length;i++)&#123; </span><br><span class="line">    Cookie cookie =cookies[i]; </span><br><span class="line">    <span class="keyword">if</span>(name.equals(cookis.getName())) </span><br><span class="line">    <span class="comment">//something is here. </span></span><br><span class="line">    <span class="comment">//you can get the value </span></span><br><span class="line">    cookie.getValue(); </span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可以持久保存，不需要服务器资源</p>
 </li>
@@ -1113,7 +964,7 @@ for(int i= 0;i&lt;cookies.length;i++){
         
       
       <div style="display: inline-block">
-        <img src="/images/reward/wechatpay.png" alt="丨Pyker丨 微信支付">
+        <img src="/images/reward/wechatpay.png" alt="丨SkyWalker丨 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -1122,7 +973,7 @@ for(int i= 0;i&lt;cookies.length;i++){
         
       
       <div style="display: inline-block">
-        <img src="/images/reward/alipay.png" alt="丨Pyker丨 支付宝">
+        <img src="/images/reward/alipay.png" alt="丨SkyWalker丨 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -1250,10 +1101,10 @@ for(int i= 0;i&lt;cookies.length;i++){
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="丨Pyker丨">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="丨SkyWalker丨">
             
-              <p class="site-author-name" itemprop="name">丨Pyker丨</p>
-              <div class="site-description motion-element" itemprop="description">与其临渊羡鱼，不如退而结网。</div>
+              <p class="site-author-name" itemprop="name">丨SkyWalker丨</p>
+              <div class="site-description motion-element" itemprop="description">何以解忧，唯有暴富。</div>
           </div>
 
           
@@ -2039,7 +1890,7 @@ for(int i= 0;i&lt;cookies.length;i++){
 
   
 
-  <link rel="stylesheet" href="/lib/prettify/skins/atelier-dune-light.css" type="text/css">
+  <link rel="stylesheet" href="/lib/prettify/skins/.css" type="text/css">
 <script src="/lib/prettify/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(document).ready(function() {
